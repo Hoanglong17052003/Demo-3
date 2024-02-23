@@ -1,99 +1,143 @@
 import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
-  Text,
   View,
-  Platform,
-  SafeAreaView,
   TextInput,
   TouchableOpacity,
+  Text,
+  Image,
 } from "react-native";
-import { Entypo } from "@expo/vector-icons";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar style="auto" />
-      {/* Fomat 1 */}
-      <View style={styles.ContainerView1}>
-        <Text style={{ color: "#fff", fontWeight: "700", fontSize: 20 }}>
-          Xin chào!
-        </Text>
-        <Text style={{ color: "#C0C0C0", fontSize: 20, paddingTop: 5 }}>
-          Hoàng Long
-        </Text>
-        <Text style={{ color: "#C0C0C0", fontSize: 14 }}>0942389857</Text>
+    <View style={styles.container}>
+      <Image
+        source={require("./assets/image/fb.jpg")}
+        style={{
+          width: "100%",
+          height: "35%",
+          resizeMode: "stretch",
+        }}
+      />
+      <StatusBar style="light" />
+      {/* Background Facebook */}
+      {/* TextInput */}
+      <View
+        style={{
+          padding: 15,
+          position: "relative",
+          height: "58%",
+          paddingTop: 30,
+        }}
+      >
+        <View style={{ gap: 20 }}>
+          <View>
+            <TextInput
+              placeholder="Enter your Email & Phone Number"
+              style={styles.TextInputBackground}
+            />
+            <TextInput
+              placeholder="Password"
+              style={styles.TextInputBackground}
+              keyboardType="numeric"
+            />
+          </View>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#3b5998",
+              padding: 10,
+              borderRadius: 5,
+              opacity: 0.8,
+            }}
+          >
+            <Text
+              style={{ color: "white", textAlign: "center", fontWeight: "800" }}
+            >
+              ĐĂNG NHẬP
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Text
+              style={{
+                color: "#3b5998",
+                textAlign: "center",
+                paddingTop: 10,
+                fontWeight: "600",
+              }}
+            >
+              Quên mật khẩu?
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View
+          style={{ position: "absolute", bottom: 0, width: "100%", left: 17 }}
+        >
+          {/* Chưa biết làm */}
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              paddingBottom: 15,
+              justifyContent: "center",
+            }}
+          >
+            <View
+              style={{
+                width: 100,
+                height: 0.6,
+                borderWidth: 0.2,
+                borderColor: "gray",
+                opacity: 0.5,
+              }}
+            ></View>
+            <Text style={{ fontSize: 14, fontWeight: "500" }}> HOẶC </Text>
+            <View
+              style={{
+                width: 100,
+                height: 0.6,
+                borderWidth: 0.2,
+                borderColor: "gray",
+                opacity: 0.5,
+              }}
+            ></View>
+          </View>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#fff",
+              padding: 10,
+              borderRadius: 5,
+              opacity: 0.8,
+              borderColor: "#3b5998",
+              borderWidth: 1,
+            }}
+          >
+            <Text
+              style={{
+                color: "#3b5998",
+                textAlign: "center",
+                fontWeight: "800",
+              }}
+            >
+              Tạo tài khoản mới
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      {/* Format 2 */}
-      <View style={{ gap: 18 }}>
-        <Entypo
-          name="lock"
-          size={18}
-          color="gray"
-          style={{ position: "absolute", top: 18, left: 18, zIndex: 10 }}
-        />
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Nhập mật khẩu"
-          keyboardType="numeric"
-          secureTextEntry={true}
-          autoFocus={true}
-        />
-        <TouchableOpacity style={styles.SignInButton}>
-          <Text style={styles.TextTouch}>ĐĂNG NHẬP</Text>
-        </TouchableOpacity>
-      </View>
-      {/* Format 3 */}
-      <View style={styles.ContainerView3}>
-        <TouchableOpacity>
-          <Text style={{ ...TEXT }}>QUÊN MẬT KHẨU</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={{ ...TEXT }}>THOÁT TÀI KHOẢN</Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+    </View>
   );
 }
-const TEXT = {
-  fontSize: 15,
-  color: "#fff",
-};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingTop: Platform.OS === "android" ? 25 : 0,
-    backgroundColor: "#e13e77",
-    gap: 30,
-    padding: 30,
-  },
-  ContainerView1: {
     width: "100%",
-    alignItems: "center",
-    paddingTop: 70,
-    gap: 15,
+    height: "100%",
+    position: "relative",
   },
-  TextInput: {
-    backgroundColor: "#fff",
-    padding: 12,
-    borderRadius: 30,
-    textAlign: "center",
-  },
-  SignInButton: {
-    backgroundColor: "#5b5c5e",
-    borderRadius: 30,
-    opacity: 0.7,
-  },
-  TextTouch: {
-    color: "#fff",
-    textAlign: "center",
+  TextInputBackground: {
     padding: 10,
-    fontSize: 14,
-  },
-  ContainerView3: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    borderWidth: 0.5,
+    borderColor: "gray",
   },
 });
